@@ -1,0 +1,26 @@
+.products-page {
+    padding-top: calc(var(--space-xl) + 60px);
+    min-height: 100vh;
+}
+
+.page-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: var(--space-sm);
+}
+
+.page-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .page-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .page-hero p {
+        font-size: 1rem;
+    }
+}

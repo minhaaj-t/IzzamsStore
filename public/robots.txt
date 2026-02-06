@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://yourpickle.com/sitemap.xml
+
+# Priority crawling
+Allow: /product/
+Allow: /*.css$
+Allow: /*.js$

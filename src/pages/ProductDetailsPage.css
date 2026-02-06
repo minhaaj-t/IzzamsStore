@@ -1,0 +1,234 @@
+.product-details-page {
+    padding-top: calc(var(--space-xl) + 60px);
+    padding-bottom: var(--space-xl);
+    min-height: 100vh;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: var(--space-lg);
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.back-link:hover {
+    color: var(--primary);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+}
+
+.main-image-container {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--space-md);
+}
+
+.main-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.additional-images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.additional-images img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.additional-images img:hover {
+    border-color: var(--primary);
+    transform: scale(1.05);
+}
+
+.category-tag {
+    color: var(--primary-dark);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+}
+
+.product-title {
+    font-size: 3.5rem;
+    margin: 0.5rem 0 1.5rem;
+    color: var(--text-main);
+    line-height: 1.1;
+}
+
+.product-price-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: var(--space-lg);
+}
+
+.product-price-meta .price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-dark);
+}
+
+.weight-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.full-description {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: var(--space-lg);
+}
+
+.specs-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: var(--space-xl);
+    padding: var(--space-md);
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.spec-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+}
+
+.spec-item div strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.spec-item div span {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.spec-item svg {
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.order-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: var(--space-lg);
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.quantity-selector button {
+    padding: 1rem;
+    transition: var(--transition);
+}
+
+.quantity-selector button:hover {
+    background: var(--primary-light);
+}
+
+.quantity-selector span {
+    padding: 0 1.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.add-to-cart-btn-lg {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: var(--primary);
+    color: var(--secondary);
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.add-to-cart-btn-lg:hover {
+    background: var(--secondary);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.trust-badges {
+    display: flex;
+    gap: 2rem;
+    color: var(--primary-dark);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.trust-badges span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+@media (max-width: 992px) {
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .order-actions {
+        flex-direction: column;
+    }
+
+    .trust-badges {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .product-price-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
