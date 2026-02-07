@@ -14,6 +14,7 @@ const ProductDetailsPage = () => {
     const [quantity, setQuantity] = useState(1);
     const [product, setProduct] = useState(null);
     const [productDetails, setProductDetails] = useState(null);
+    const [selectedImage, setSelectedImage] = useState(null);
 
     useEffect(() => {
         if (!loading && products.length > 0) {
@@ -21,6 +22,8 @@ const ProductDetailsPage = () => {
             const foundDetails = details.find(d => d.product_id === id);
             setProduct(foundProduct);
             setProductDetails(foundDetails);
+            // Reset selected image when product changes
+            setSelectedImage(null);
             window.scrollTo(0, 0);
         }
     }, [id, products, details, loading]);
@@ -37,9 +40,16 @@ const ProductDetailsPage = () => {
         addToCart(product, quantity);
     };
 
-    const aditionalImages = productDetails?.additional_images
-        ? productDetails.additional_images.split(',').map(img => img.trim())
+    // Parse additional images from comma-separated string
+    const additionalImages = productDetails?.additional_images
+        ? productDetails.additional_images.split(',').map(img => img.trim()).filter(img => img.length > 0)
         : [];
+
+    // Get the main product image
+    const mainProductImage = getProductImage(product.product_name, product.image_url);
+
+    // Current displayed image (selected or default main image)
+    const displayedImage = selectedImage || mainProductImage;
 
     return (
         <div className="product-details-page">
@@ -57,16 +67,31 @@ const ProductDetailsPage = () => {
                     >
                         <div className="main-image-container">
                             <img
-                                src={getProductImage(product.product_name, product.image_url)}
+                                src={displayedImage}
                                 alt={product.product_name}
                                 className="main-image"
                                 onError={(e) => handleImageError(e, product.product_name)}
                             />
                         </div>
-                        {aditionalImages.length > 0 && (
+                        {additionalImages.length > 0 && (
                             <div className="additional-images">
-                                {aditionalImages.map((img, idx) => (
-                                    <img key={idx} src={img} alt={`${product.product_name} ${idx + 1}`} />
+                                {/* Main product image thumbnail */}
+                                <img
+                                    src={mainProductImage}
+                                    alt={product.product_name}
+                                    className={displayedImage === mainProductImage ? 'active' : ''}
+                                    onClick={() => setSelectedImage(null)}
+                                    onError={(e) => handleImageError(e, product.product_name)}
+                                />
+                                {/* Additional images thumbnails */}
+                                {additionalImages.map((img, idx) => (
+                                    <img
+                                        key={idx}
+                                        src={img}
+                                        alt={`${product.product_name} ${idx + 1}`}
+                                        className={displayedImage === img ? 'active' : ''}
+                                        onClick={() => setSelectedImage(img)}
+                                    />
                                 ))}
                             </div>
                         )}
