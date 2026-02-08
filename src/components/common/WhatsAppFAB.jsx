@@ -5,13 +5,13 @@ import './WhatsAppFAB.css';
 const contacts = [
     {
         name: 'Mubashirul Izzam',
-        phone: '+917594015016',
+        phone: '+91 884 882 3269',
         avatar: 'https://i.pravatar.cc/150?img=11'
     },
     {
-        name: 'Nasar Khan',
-        phone: '+917594015017',
-        avatar: 'https://i.pravatar.cc/150?img=12'
+        name: 'Your Pickles Team',
+        phone: '+91 884 882 3269',
+        avatar: '/images/logos/your-pickles.png'
     }
 ];
 
@@ -32,7 +32,7 @@ const WhatsAppFAB = () => {
     const handleSendMessage = () => {
         if (!message.trim() || !selectedContact) return;
 
-        const phoneNumber = selectedContact.phone.replace(/\+/g, '');
+        const phoneNumber = selectedContact.phone.replace(/[\s+]/g, '');
         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         setMessage('');
         setSelectedContact(null);

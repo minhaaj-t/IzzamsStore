@@ -26,7 +26,7 @@ const CartSidebar = () => {
 
         const message = `🛒 *New Order from IZZAM'S STORE*\n\n${orderText}\n\n*Total: ₹${total}*\n\nPlease confirm my order!`;
 
-        const whatsappUrl = `https://wa.me/917594015016?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/918848823269?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
     };
 

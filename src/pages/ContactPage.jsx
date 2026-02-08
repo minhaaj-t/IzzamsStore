@@ -5,7 +5,7 @@ import './ContactPage.css';
 import '../styles/PageHero.css';
 
 const ContactPage = () => {
-    const phoneNumber = '+917594015016';
+    const phoneNumber = '+918848823269';
 
     const handleWhatsAppContact = () => {
         const message = "Hello IZZAM'S STORE! I would like to know more about Your Pickle products.";
@@ -53,7 +53,7 @@ const ContactPage = () => {
                                 <Phone size={24} />
                                 <div>
                                     <h3>Phone</h3>
-                                    <p>+91 7594015016</p>
+                                    <p>+91 884 882 3269</p>
                                     <p className="sub-text">Available for WhatsApp orders</p>
                                 </div>
                             </div>
