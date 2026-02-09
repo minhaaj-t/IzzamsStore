@@ -5,7 +5,7 @@ import './WhatsAppFAB.css';
 const contacts = [
     {
         name: 'Mubashirul Izzam',
-        phone: '+91 884 882 3269',
+        phone: '+91 7594015016',
         avatar: 'https://i.pravatar.cc/150?img=11'
     },
     {
